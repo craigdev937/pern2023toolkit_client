@@ -24,7 +24,9 @@ export const EditPlayer = () => {
     };
 
     const handleChange =
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement
+    >) => {
         setPlayer({...player, 
             [event.target.name]: event.target.value});
     };
@@ -83,9 +85,8 @@ export const EditPlayer = () => {
                 </aside>
                 <aside>
                     <label htmlFor="info">Info</label>
-                    <input 
-                        type="text" 
-                        name="info"
+                    <textarea 
+                        name="info" 
                         placeholder="Info"
                         value={player.info}
                         onChange={handleChange}
